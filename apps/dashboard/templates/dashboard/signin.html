@@ -1,0 +1,36 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}
+    Signin
+{% endblock %}
+
+
+{% block content %}
+    <div class="row mb-3">
+        <div class="col-5">
+            <ul class="list-group">
+            {% for message in messages %}
+                <li class="list-group-item {% if message.tags %}{% if message.tags == 'error' %}list-group-item-danger{% else %}list-group-success-success{% endif %}{% endif %}">{{ message }}</li>
+            {% endfor%}
+            </ul>
+         </div>
+    </div>  
+    <div class="row">    
+        <div class="col-5">
+            <h1>Signin</h1>
+            <form method="POST" action="{% url 'dash:signin' %}" class="mb-3">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" class="form-control">
+                </div>          
+                <div class="form-group">
+                    <label for="pw">Password:</label>
+                    <input type="password" name="pw" class="form-control">
+                </div>      
+                <input type="submit" value="Signin" class="btn btn-success float-right">
+            </form>
+            <a href="{% url 'dash:register' %}">Register for an account</a>
+        </div>
+    </div>
+{% endblock %}

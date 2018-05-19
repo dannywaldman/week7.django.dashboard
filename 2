@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+        <title>{% block title%}{% endblock %}</title>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                {% block jquery %}
+                {% endblock %}
+            });
+        </script>
+    </head>
+    <body>
+        <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar-brand" href="{% url 'dash:index' %}">Test App</a>
+            <div>   
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 3</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="btn btn-outline-success float-right" href="#">Login</a>
+        </nav>        
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+            {% block footer %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

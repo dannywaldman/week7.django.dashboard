@@ -1,0 +1,3 @@
+full discliaimer...
+
+this is not finished, I was exploring some new things and lost track of time and had to give this up to move on
